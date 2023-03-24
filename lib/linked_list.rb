@@ -83,4 +83,16 @@ class LinkedList
     end
     string.lstrip
   end
+
+  def includes?(data)
+    last_node = @head
+    while last_node.value != data
+      if last_node.next_node == nil
+        return false
+      else
+        last_node = last_node.next_node
+      end
+    end
+    return true
+  end
 end
