@@ -95,4 +95,15 @@ class LinkedList
     end
     return true
   end
+
+  def pop
+    last_node = @head
+    while last_node.next_node != nil
+      placeholder = last_node
+      last_node = last_node.next_node
+    end
+    deleted = last_node.value
+    placeholder.next_node = nil
+    return deleted
+  end
 end
