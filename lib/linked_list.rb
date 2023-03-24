@@ -69,11 +69,18 @@ class LinkedList
 
   def find(index, items)
     counter = 0
+    item_counter = 0
     last_node = @head
-    while counter != index
+    string = ""
+    while item_counter != items
+      while counter != index
+        last_node = last_node.next_node
+        counter +=1
+      end
+      string << " #{last_node.value}"
+      item_counter += 1
       last_node = last_node.next_node
-      counter +=1
     end
-    last_node.value
+    string.lstrip
   end
 end
