@@ -57,4 +57,29 @@ RSpec.describe LinkedList do
     list.append("beep")
     expect(list.to_string).to eq("doop deep beep")
   end
+
+  it "can prepend values to the front of the LinkedList" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    expect(list.to_string).to eq("dop plop suu")
+  end
+
+  it "can count even MORE values" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    expect(list.count).to eq(3)
+  end
+
+  it "can return a string with appended, prepended and inserted values" do
+    list = LinkedList.new
+    list.append("plop")
+    list.append("suu")
+    list.prepend("dop")
+    list.insert(1, "woo")
+    expect(list.to_string).to eq("dop woo plop suu")
+  end
 end

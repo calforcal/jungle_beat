@@ -37,4 +37,33 @@ class LinkedList
     @string << " #{last_node.value}"
     string.lstrip
   end
+
+  def prepend(value)
+    if @head == nil
+      @head = Node.new(value)
+    else
+      placeholder = @head
+      @head = Node.new(value)
+      @head.next_node = placeholder
+    end
+
+    def insert(num, value)
+      @counter = 1
+      last_node = @head
+      if num == 0
+        placeholder = @head
+        @head = Node.new(value)
+        @head.next_node = placeholder
+      else
+        while @counter != num
+          last_node = last_node.next_node
+          @counter += 1
+        end
+        placeholder = last_node.next_node
+        insert_node = Node.new(value)
+        last_node.next_node = insert_node
+        insert_node.next_node = placeholder
+      end
+    end
+  end
 end
