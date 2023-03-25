@@ -29,8 +29,7 @@ RSpec.describe JungleBeat do
 
   it "can count all the values" do
     jb = JungleBeat.new
-    jb.append("deep doo ditt")
-    jb.append("woo hoo shu")
-    expect(jb.list.count).to eq(6)
+    jb.append("This one is for you Mr. Krabs Bee boo boo bop Bee boo boo bee bop Bop bee boo boo bee bop boo bop Bee boo boo bee boo bop")
+    expect(jb.list.count).to eq(30)
   end
 end
