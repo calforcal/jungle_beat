@@ -20,4 +20,9 @@ class JungleBeat
       end
     end
   end
+
+  def play
+    beat = @list.to_string
+    `say -r 500 -v Boing #{beat}`
+  end
 end
