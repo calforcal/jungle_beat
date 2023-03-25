@@ -1,5 +1,5 @@
 class LinkedList
-  attr_reader :head, :counter, :string
+  attr_accessor :head, :counter, :string
   def initialize
     @head = nil
   end
@@ -13,7 +13,7 @@ class LinkedList
       while(last_node.next_node != nil)
         last_node = last_node.next_node
       end
-      last_node.next_node = Node.new(value)
+      last_node.next_node = node
     end
   end
 
