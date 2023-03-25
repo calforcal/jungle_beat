@@ -8,6 +8,6 @@ RSpec.describe Node do
 
   it "accepts data" do
     node = Node.new("plop")
-    expect(node.data).to eq("plop")
+    expect(node.value).to eq("plop")
   end
 end
