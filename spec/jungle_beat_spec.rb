@@ -16,8 +16,8 @@ RSpec.describe JungleBeat do
   it "can take in a multivalue string and separate by value" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
-    expect(jb.list.head.value).to eq("deep")
-    expect(jb.list.head.next_node.value).to eq("doo")
+    expect(jb.list.head.data).to eq("deep")
+    expect(jb.list.head.next_node.data).to eq("doo")
   end
 
   it "can add more values" do
