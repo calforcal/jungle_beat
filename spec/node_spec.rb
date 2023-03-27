@@ -14,4 +14,5 @@ RSpec.describe Node do
   it "initializes with next node defaulting to nil" do
     node = Node.new("plop")
     expect(node.next_node).to eq(nil)
+  end
 end
