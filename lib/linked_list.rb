@@ -35,11 +35,10 @@ class LinkedList
   def to_string
     string = ""
     current_node = @head
-    while current_node.next_node != nil
+    self.count.times do
       string << " #{current_node.data}"
       current_node = current_node.next_node
     end
-    string << " #{current_node.data}"
     string.lstrip
   end
 
@@ -58,9 +57,7 @@ class LinkedList
     counter = 1
     current_node = @head
     if index == 0
-      placeholder = @head
-      @head = Node.new(data)
-      @head.next_node = placeholder
+      self.prepend(data)
     else
       while counter != index
         current_node = current_node.next_node
@@ -94,11 +91,7 @@ class LinkedList
   def includes?(value)
     current_node = @head
     while current_node.data != value
-      if current_node.next_node == nil
-        return false
-      else
-        current_node = current_node.next_node
-      end
+      if current_node.next_node == nil then return false else current_node = current_node.next_node end
     end
     return true
   end
