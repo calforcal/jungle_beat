@@ -4,7 +4,7 @@ require "./jungle_beat"
 
 RSpec.describe JungleBeat do
   it "intitializes" do
-    jb = JungleBeat.new
+    jb = JungleBeat.new()
     expect(jb).to be_an_instance_of(JungleBeat)
   end
 
@@ -30,7 +30,13 @@ RSpec.describe JungleBeat do
 
   it "can count all the values" do
     jb = JungleBeat.new
-    jb.append("This one is for you Mr. Krabs Bee boo boo bop Bee boo boo bee bop Bop bee boo boo bee bop boo bop Bee boo boo bee boo bop")
-    expect(jb.list.count).to eq(30)
+    jb.append("deep doo ditt woo hoo shu")
+    expect(jb.list.count).to eq(6)
+  end
+
+  it "only appends valid beats" do
+    jb = JungleBeat.new("deep")
+    expect(jb.list.head.data).to eq("deep")
+    expect(jb.append("Mississippi")).to eq("")
   end
 end

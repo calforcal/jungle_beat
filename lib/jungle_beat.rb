@@ -1,24 +1,30 @@
 class JungleBeat
-  attr_reader :list
+  attr_accessor :list, :valid_beats
 
-  def initialize
+  def initialize(value = nil)
     @list = LinkedList.new
+    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt"]
+    if value != nil
+      @list.append(value)
+    end
   end
 
   def append(string)
     data_array = string.split(" ")
-    data_array.each do |data|
-      node = Node.new(data)
+    valid_array = data_array.select {|data| @valid_beats.include?(data)}
+    valid_array.each do |data|
+      insert_node = Node.new(data)
       if @list.head == nil
-        @list.head = node
+        @list.head = insert_node
       else
-        last_node = @list.head
-        while(last_node.next_node != nil)
-          last_node = last_node.next_node
+        current_node = @list.head
+        while(current_node.next_node != nil)
+          current_node = current_node.next_node
         end
-        last_node.next_node = node
+        current_node.next_node = insert_node
       end
     end
+    valid_array.join(" ")
   end
 
   def play
