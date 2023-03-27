@@ -15,6 +15,12 @@ RSpec.describe LinkedList do
   it "adds data to a new node" do
     list = LinkedList.new
     list.append("doop")
+    expect(list.head.data).to eq("doop")
+  end
+
+  it "creates a Node within the LinkedList" do
+    list = LinkedList.new
+    list.append("doop")
     expect(list.head).to be_an_instance_of(Node)
   end
 
@@ -24,7 +30,7 @@ RSpec.describe LinkedList do
     expect(list.head.next_node).to eq(nil)
   end
 
-  it "can count the number of nodes" do
+  it "can count the number of Nodes in the LinkedList" do
     list = LinkedList.new
     list.append("doop")
     expect(list.count).to eq(1)
@@ -38,7 +44,11 @@ RSpec.describe LinkedList do
 
   it "can add multiple Nodes" do
     list = LinkedList.new
+    expect(list).to be_an_instance_of(LinkedList)
+    expect(list.head).to eq(nil)
     list.append("doop")
+    expect(list.head).to be_an_instance_of(Node)
+    expect(list.head.next_node).to eq(nil)
     list.append("deep")
     expect(list.head.next_node).to be_an_instance_of(Node)
   end
@@ -74,12 +84,13 @@ RSpec.describe LinkedList do
     expect(list.count).to eq(3)
   end
 
-  it "can return a string with appended, prepended and inserted values" do
+  it "can insert values at specific indexes" do
     list = LinkedList.new
     list.append("plop")
     list.append("suu")
     list.prepend("dop")
     list.insert(1, "woo")
+    expect(list.insert(1, "woo")).to eq("woo")
     expect(list.to_string).to eq("dop woo plop suu")
   end
 

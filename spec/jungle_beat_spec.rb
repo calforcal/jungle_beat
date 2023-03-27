@@ -10,10 +10,11 @@ RSpec.describe JungleBeat do
 
   it "initializes with a Linked List" do
     jb = JungleBeat.new
+    expect(jb.list).to be_an_instance_of(LinkedList)
     expect(jb.list.head).to eq(nil)
   end
 
-  it "can take in a multivalue string and separate by value" do
+  it "can take in a multivalue string and separate into nodes by value" do
     jb = JungleBeat.new
     jb.append("deep doo ditt")
     expect(jb.list.head.data).to eq("deep")

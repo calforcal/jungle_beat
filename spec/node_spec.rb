@@ -10,4 +10,8 @@ RSpec.describe Node do
     node = Node.new("plop")
     expect(node.data).to eq("plop")
   end
+
+  it "initializes with next node defaulting to nil" do
+    node = Node.new("plop")
+    expect(node.next_node).to eq(nil)
 end

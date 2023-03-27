@@ -5,36 +5,41 @@ class LinkedList
   end
 
   def append(data)
-    node = Node.new(data)
+    insert_node = Node.new(data)
     if @head == nil
-      @head = node
+      @head = insert_node
     else
       current_node = @head
       while(current_node.next_node != nil)
         current_node = current_node.next_node
       end
-      current_node.next_node = node
+      current_node.next_node = insert_node
     end
+    data
   end
 
   def count
     counter = 1
     current_node = @head
-    while current_node.next_node != nil
-      counter += 1
-      current_node = current_node.next_node
-    end
+    if @head == nil
+      return 0
+    else
+      while current_node.next_node != nil
+        counter += 1
+        current_node = current_node.next_node
+      end
     return counter
+    end
   end
 
   def to_string
-    @string = ""
+    string = ""
     current_node = @head
     while current_node.next_node != nil
-      @string << " #{current_node.data}"
+      string << " #{current_node.data}"
       current_node = current_node.next_node
     end
-    @string << " #{current_node.data}"
+    string << " #{current_node.data}"
     string.lstrip
   end
 
@@ -46,17 +51,18 @@ class LinkedList
       @head = Node.new(data)
       @head.next_node = placeholder
     end
+    data
   end
 
-  def insert(num, data)
+  def insert(index, data)
     counter = 1
     current_node = @head
-    if num == 0
+    if index == 0
       placeholder = @head
       @head = Node.new(data)
       @head.next_node = placeholder
     else
-      while counter != num
+      while counter != index
         current_node = current_node.next_node
         counter += 1
       end
@@ -65,6 +71,7 @@ class LinkedList
       current_node.next_node = insert_node
       insert_node.next_node = placeholder
     end
+    data
   end
 
   def find(index, items)
@@ -84,9 +91,9 @@ class LinkedList
     string.lstrip
   end
 
-  def includes?(yooo)
+  def includes?(value)
     current_node = @head
-    while current_node.data != yooo
+    while current_node.data != value
       if current_node.next_node == nil
         return false
       else
