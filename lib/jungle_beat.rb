@@ -1,13 +1,13 @@
 class JungleBeat
-  attr_accessor :list, :valid_beats
+  attr_accessor :list, :valid_beats, :voice, :rate
 
   def initialize(value = nil)
     @list = LinkedList.new
-    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt"]
+    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt", "dop"]
     @rate = 200
-    @voice = "Alex"
+    @voice = "Boing"
     if value != nil
-      @list.append(value)
+      self.append(value)
     end
   end
 
