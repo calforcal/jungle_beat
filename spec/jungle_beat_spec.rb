@@ -60,4 +60,9 @@ RSpec.describe JungleBeat do
     expect(jb.voice).to eq("Boing")
     expect(jb.rate).to eq(500)
   end
+
+  it "plays sounds!" do
+    jb = JungleBeat.new("deep dop dop deep")
+    expect(jb).to respond_to(:play)
+  end
 end

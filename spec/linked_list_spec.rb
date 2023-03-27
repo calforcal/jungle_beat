@@ -14,7 +14,7 @@ RSpec.describe LinkedList do
 
   it "adds data to a new node" do
     list = LinkedList.new
-    list.append("doop")
+    expect(list.append("doop")).to eq("doop")
     expect(list.head.data).to eq("doop")
   end
 
