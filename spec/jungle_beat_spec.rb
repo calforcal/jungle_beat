@@ -39,4 +39,14 @@ RSpec.describe JungleBeat do
     expect(jb.list.head.data).to eq("deep")
     expect(jb.append("Mississippi")).to eq("")
   end
+
+  it "prepends and returns all beats" do
+    jb = JungleBeat.new("deep")
+    jb.append("Mississippi")
+    expect(jb.all).to eq("deep")
+    jb.prepend("tee tee tee Mississippi")
+    expect(jb.all).to eq("tee tee tee deep")
+  end
+
+  
 end
