@@ -1,28 +1,48 @@
 class JungleBeat
-  attr_reader :list
+  attr_accessor :list, :valid_beats, :voice, :rate
 
-  def initialize
+  def initialize(value = nil)
     @list = LinkedList.new
-  end
-
-  def append(string)
-    data_array = string.split(" ")
-    data_array.each do |data|
-      node = Node.new(data)
-      if @list.head == nil
-        @list.head = node
-      else
-        last_node = @list.head
-        while(last_node.next_node != nil)
-          last_node = last_node.next_node
-        end
-        last_node.next_node = node
-      end
+    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt", "dop"]
+    @rate = 200
+    @voice = "Boing"
+    if value != nil
+      self.append(value)
     end
   end
 
+  def append(data)
+    valid_beats = validate_beats(data)
+    valid_beats.each {|data| list.append(data)}
+    valid_beats.join(" ")
+  end
+
+  def all
+    list.to_string
+  end
+
+  def prepend(data)
+    valid_beats = validate_beats(data)
+    valid_beats.each {|data| list.prepend(data)}
+    valid_beats.join(" ")
+  end
+
+  def validate_beats(beats)
+    data_array = beats.split(" ")
+    valid_array = data_array.select {|data| @valid_beats.include?(data.downcase)}
+  end
+
   def play
-    beat = @list.to_string
-    `say -r 200 -v Alex #{beat}`
+    beat = list.to_string
+    `say -r #{@rate} -v #{@voice} #{beat}`
+    return list.count
+  end
+
+  def reset_rate
+    @rate = 500
+  end
+
+  def reset_voice
+    @voice = "Boing"
   end
 end
