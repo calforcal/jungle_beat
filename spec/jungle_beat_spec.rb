@@ -65,4 +65,9 @@ RSpec.describe JungleBeat do
     jb = JungleBeat.new("deep dop dop deep")
     expect(jb).to respond_to(:play)
   end
+
+  it "can handle larger beats" do
+    jb = JungleBeat.new("deep dop dee doop beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee")
+    require 'pry'; binding.pry
+  end
 end
