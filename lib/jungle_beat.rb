@@ -17,6 +17,10 @@ class JungleBeat
     valid_beats.join(" ")
   end
 
+  def count
+    self.list.count
+  end
+
   def all
     list.to_string
   end
