@@ -47,6 +47,6 @@ class JungleBeat
   end
 
   def reset_voice
-    @voice = "Boing"
+    @voice = "Victoria"
   end
 end
