@@ -67,7 +67,13 @@ RSpec.describe JungleBeat do
   end
 
   it "can handle larger beats" do
-    jb = JungleBeat.new("deep dop dee doop beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee")
-    require 'pry'; binding.pry
+    jb = JungleBeat.new("deep dop dee beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee")
+    expect(jb.count).to eq(49)
+    expect(jb.list.find(3, 10)).to eq("beep bee boo shu woo shi shoo tee na shu")
+    48.times {jb.list.pop}
+    expect(jb.all).to eq("deep")
+    jb.append("deep dop dee beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee deep dop dee beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee")
+    expect(jb.count).to eq(99)
+    expect(jb.all).to eq("deep deep dop dee beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee deep dop dee beep bee boo shu woo shi shoo tee na shu bop beep boo dop la la la bop bop bop ditt dop ditt dop hoo woo plop shu shi tee dee tee dee deep dop bop boop la na boop bop boop boop beep tee dee")
   end
 end
