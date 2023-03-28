@@ -3,9 +3,9 @@ class JungleBeat
 
   def initialize(value = nil)
     @list = LinkedList.new
-    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt", "dop"]
+    @valid_beats = ["tee", "dee", "deep", "bop", "boop", "la", "na", "beep", "shoo", "shi", "shu", "plop", "suu", "woo", "hoo", "doo", "ditt", "dop", "bee", "boo", "bop"]
     @rate = 200
-    @voice = "Boing"
+    @voice = "Alex"
     if value != nil
       self.append(value)
     end
@@ -15,6 +15,10 @@ class JungleBeat
     valid_beats = validate_beats(data)
     valid_beats.each {|data| list.append(data)}
     valid_beats.join(" ")
+  end
+
+  def count
+    self.list.count
   end
 
   def all

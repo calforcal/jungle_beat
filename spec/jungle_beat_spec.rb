@@ -31,7 +31,7 @@ RSpec.describe JungleBeat do
   it "can count all the values" do
     jb = JungleBeat.new
     jb.append("deep doo ditt woo hoo shu")
-    expect(jb.list.count).to eq(6)
+    expect(jb.count).to eq(6)
   end
 
   it "only appends valid beats" do
